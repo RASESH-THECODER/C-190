@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Simulation</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="./components/control.js"></script>
+    </head>
+    <body>
+        <a-scene background="color:#ffffff">
+            <a-entity id="look" look-controls camera position="0 2 8"></a-entity>
+            <!-- !Assets Management -->
+            <a-assets>
+                <a-asset-item
+          id="City"
+          src="./City/scene.gltf"
+                ></a-asset-item>
+
+                <a-asset-item
+                id="Car"
+                src="./Car/scene.gltf"
+              ></a-asset-item>
+            </a-assets>
+
+             <!-- City  -->
+      <a-entity
+      id="City"
+      gltf-model="#City"
+      position="0 0 0"
+      scale="0.3 0.3 0.3"
+      animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 150000"
+    >
+    </a-entity>
+
+    <!-- Car -->
+    <a-entity
+      id="Car_model"
+      gltf-model="#Car"
+      position="0 1 0"
+      scale="2 2 2"
+      rotation="0 180 0"
+      city-control-reader
+    >
+    </a-entity>
+
+        </a-scene>
+    </body>
+</html>
